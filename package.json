@@ -1,0 +1,34 @@
+{
+  "name": "school-audio-server",
+  "version": "1.0.0",
+  "description": "Backend server for school audio broadcasting project using websockets.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Vinayak Kumawat",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "csv-parser": "^3.1.0",
+    "csv-stringify": "^6.5.2",
+    "csv-writer": "^1.6.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "fs": "^0.0.1-security",
+    "helmet": "^8.0.0",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7",
+    "sanitize-html": "^2.14.0",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.0.3",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}
