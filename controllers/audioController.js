@@ -1,9 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { addAudio, removeAudio, getAudio } from '../data/store.js';
 
 export const handleNewAudio = async (audioData) => {
   const audio = {
-    id: uuidv4(),
+    id: audioData.id,
     userId: audioData.userId,
     url: audioData.url,
     createdAt: new Date().toISOString(),
