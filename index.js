@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { createServer } from 'https';
 import { Server } from 'socket.io';
+import fs from 'fs';
 import { corsConfig } from './config/cors.js';
 import { setupWebSocketHandlers } from './websocket/handlers.js';
 import { errorHandler } from './middleware/errorHandler.js';
