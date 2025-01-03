@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { createServer } from 'http';
+import { createServer } from 'https';
 import { Server } from 'socket.io';
 import { corsConfig } from './config/cors.js';
 import { setupWebSocketHandlers } from './websocket/handlers.js';
@@ -21,8 +21,15 @@ import { initializeStore } from './data/store.js';
 
 const logger = createLogger('server');
 const app = express();
-const httpServer = createServer(app);
-const io = new Server(httpServer, {
+
+// Load SSL certificate and key
+const sslOptions = {
+    key: fs.readFileSync('/etc/letsencrypt/live/school.ml1010.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/school.ml1010.com/fullchain.pem')
+};
+
+const httpsServer = createServer(sslOptions, app);
+const io = new Server(httpsServer, {
     cors: corsConfig
 });
 
@@ -70,7 +77,7 @@ const startServer = async () => {
 
         await backupManager.createBackup();
 
-        httpServer.listen(PORT, () => {
+        httpsServer.listen(PORT, () => {
             logger.info(`Server running on port ${PORT}`);
         });
     } catch (error) {
